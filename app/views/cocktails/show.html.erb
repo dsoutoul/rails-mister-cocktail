@@ -1,0 +1,25 @@
+<div class="container border">
+  <p>
+    <strong>Name:</strong>
+    <%= @cocktail.name %>
+  </p>
+  <p>
+    <strong>Ingredients:</strong><br>
+    <%= @ingredient.name %>
+    <% @cocktail.doses.each do |dose| %>
+    <%= dose.description %>
+    <%= dose.ingredient.name%>
+  </p>
+  <% end %>
+
+  <br>
+  <%= link_to 'Add New Dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+  <br>
+  <br>
+  <%= link_to 'Back to list', cocktails_path, class: "btn btn-danger" %>
+  <br>
+  <br>
+  <img src="https://source.unsplash.com/1600x900/?<%=@cocktail.name%>" class="img-thumbnail" alt="cocktail">
+</div>
+
+
