@@ -15,7 +15,8 @@
   <% end %>
 
 
-  <%= image_tag "https://source.unsplash.com/1600x900/?<%=@cocktail.name%>" alt="cocktail" style = "width: 400px">
+
+  <%= image_tag @cocktail.photo.url, width: 400, height: 400, crop: :fill%>
   <br>
   <br>
   <%= link_to 'Add New Dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>

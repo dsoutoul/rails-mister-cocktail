@@ -22,7 +22,8 @@ class CocktailsController < ApplicationController
     end
   end
 
-   def destroy
+  def destroy
+    @cocktail = Cocktail.find(params[:id])
     @cocktail.destroy
     redirect_to cocktails_url, notice: 'Cocktail was successfully deleted.'
   end
@@ -30,6 +31,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :title, :body, :photo)
   end
 end
