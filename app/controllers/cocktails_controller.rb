@@ -22,6 +22,11 @@ class CocktailsController < ApplicationController
     end
   end
 
+   def destroy
+    @cocktail.destroy
+    redirect_to cocktails_url, notice: 'Cocktail was successfully deleted.'
+  end
+
   private
 
   def cocktail_params

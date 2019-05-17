@@ -9,13 +9,15 @@
 <% @cocktails.each do |cocktail| %>
 <div class="card d-inline-flex mr-3 mb-5 rounded shadow" style="width: 18rem;">
   <img src="https://source.unsplash.com/1600x900/?<%=cocktail.name%>" class="card-img-top" alt="cocktail">
-  <div class="card-body">
+  <div class="card-body hov">
     <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
 
     <%= link_to "See Details", cocktail_path(cocktail), class: "btn btn-primary" %>
+    <%= link_to 'Delete', cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger m-4" %>
   </div>
 </div>
 <%end%>
+
 </div>
 
 
