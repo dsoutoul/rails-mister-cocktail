@@ -1,23 +1,27 @@
-<nav class="navbar navbar-dark bg-primary mb-5">
-  <span class="navbar-text">
-    <h2 class="text-white">List of your cocktails <%= link_to '+ New Cocktail', new_cocktail_path(@cocktail), class: "btn btn-primary" %></h2>
-  </span>
-</nav>
-
-
 <div class="container">
+  <%= link_to '+ New Cocktail', new_cocktail_path(@cocktail), class: "btn btn-primary mb-3 mt-3" %>
   <div class="cards">
   <% @cocktails.each do |cocktail| %>
     <% if cocktail.photo.url %>
       <% photo = cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>
     <% else %>
-      <% photo = "https://d1ia71hq4oe7pn.cloudfront.net/og/75335251-1200px.jpg" %>
+      <% photo = "https://cdn.liquor.com/wp-content/uploads/2017/09/01105619/cosmopolitan-1200x628-social-Molly.jpg" %>
     <%end%>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo %>); background-size: cover; background-repeat: none">
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      <%= link_to cocktail.name, cocktail_path(cocktail), style:"color:white" %>
       </div>
   <%end%>
   </div>
 </div>
 
+
+<div class="footer bg-primary" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5))">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
 
